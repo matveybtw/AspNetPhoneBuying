@@ -1,0 +1,53 @@
+﻿@model List<AspPhoneBuying.Models.Phone>
+@{
+    ViewBag.Title = "Index";
+}
+
+<form style="display: flex; flex-direction: column;" action="/Phone/Add" method="post">
+    <label>Назва:</label>
+    <input name="Name" />
+    <label>Операційна система:</label>
+    <input name="OS" />
+    <label>Проецсор:</label>
+    <input name="ProcessorName" />
+    <label>Модель процесору:</label>
+    <input name="ProcessorModel" />
+    <label>Кількість ядер:</label>
+    <input name="ProcessorCores" />
+    <label>Відеоприскорювач:</label>
+    <input name="GPU" />
+    <label>Оперативна пам'ять:</label>
+    <input name="RAM" />
+    <label>Вбудована пам'ять:</label>
+    <input name="Storage" />
+    <label>Камера:</label>
+    <input name="Camera" />
+    <label>Роздільна здатність:</label>
+    <input name="CameraResolution" />
+    <label>Ціна: </label>
+    <input name="Price" />
+    <label>Зображення: </label>
+    <input name="Picture" />
+    <input type="submit" value="Login" />
+
+</form>
+
+<div class="blocks">
+    @foreach (var phone in @Model)
+    {
+        <div class="phoneBlock">
+            <img src="@phone.Picture" />
+            <h1>@phone.Name</h1>
+            <p>Операційна система: @phone.OS</p>
+            <p>Проецсор: @phone.ProcessorName</p>
+            <p>Модель процесору: @phone.ProcessorModel</p>
+            <p>Кількість ядер: @phone.ProcessorCores</p>
+            <p>Відеоприскорювач: @phone.GPU</p>
+            <p>Оперативна пам'ять: @phone.RAM</p>
+            <p>Вбудована пам'ять: @phone.Storage</p>
+            <p>Камера: @phone.Camera</p>
+            <p>Роздільна здатність: @phone.CameraResolution</p>
+            <h4>@phone.Price</h4>
+        </div>
+    }
+    </div>

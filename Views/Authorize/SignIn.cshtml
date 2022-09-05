@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+}
+
+@if (ViewBag.UserId == null || ViewBag.UserId == -1)
+{
+    <form action="/Authorize/Login" method="post">
+        <label>Login</label>
+        <br />
+        <input type="text" name="login" width="70" />
+        <br />
+        <label>Password</label>
+        <br />
+        <input type="password" name="pass" width="70" />
+        <br />
+        <input type="submit" value="Login" />
+    </form>
+}

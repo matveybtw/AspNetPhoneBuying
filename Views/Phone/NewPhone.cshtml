@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "NewPhone";
+}
+
+<form style="display: flex; flex-direction: column;" action="/Phone/Add" method="post">
+    <label>Назва:</label>
+    <input name="Name" />
+    <label>Операційна система:</label>
+    <input name="OS" />
+    <label>Проецсор:</label>
+    <input name="ProcessorName" />
+    <label>Модель процесору:</label>
+    <input name="ProcessorModel" />
+    <label>Кількість ядер:</label>
+    <input name="ProcessorCores" />
+    <label>Відеоприскорювач:</label>
+    <input name="GPU" />
+    <label>Оперативна пам'ять:</label>
+    <input name="RAM" />
+    <label>Вбудована пам'ять:</label>
+    <input name="Storage" />
+    <label>Камера:</label>
+    <input name="Camera" />
+    <label>Роздільна здатність:</label>
+    <input name="CameraResolution" />
+    <label>Ціна: </label>
+    <input name="Price" />
+    <input type="submit" value="Login" />
+    <label>Зображення: </label>
+    <input name="Picture" />
+</form>

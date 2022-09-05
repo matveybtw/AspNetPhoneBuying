@@ -1,0 +1,30 @@
+﻿@model List<AspPhoneBuying.Models.Phone>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="blocks">
+    @foreach (var phone in @Model)
+    {
+        <form action="/card/add" method="post">
+            <div class="phoneBlock">
+                <img src="@phone.Picture" />
+                <h1>@phone.Name</h1>
+                <p>Операційна система: @phone.OS</p>
+                <p>Проецсор: @phone.ProcessorName</p>
+                <p>Модель процесору: @phone.ProcessorModel</p>
+                <p>Кількість ядер: @phone.ProcessorCores</p>
+                <p>Відеоприскорювач: @phone.GPU</p>
+                <p>Оперативна пам'ять: @phone.RAM</p>
+                <p>Вбудована пам'ять: @phone.Storage</p>
+                <p>Камера: @phone.Camera</p>
+                <p>Роздільна здатність: @phone.CameraResolution</p>
+                <h4>@phone.Price</h4>
+                @if (ViewBag.UserId != null && ViewBag.UserId != -1)
+                {
+                    <input type="hidden" name="phoneId" value="@phone.Id" />
+                    <input type="submit" value="Add to cart" />
+                }
+            </div>
+        </form>
+    }
+</div>

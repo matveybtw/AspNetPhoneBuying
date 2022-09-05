@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <style>
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .blocks{
+            display:flex;
+        }
+        .phoneBlock {
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 999;
+            height: 1000px;
+            width: 500px;
+            border: black solid 2px;
+            padding:-1px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            @if (ViewBag.UserId == null || ViewBag.UserId == -1)
+            {
+                <li>@Html.ActionLink("SignUp", "SignUp", "Authorize")</li>
+                <li>@Html.ActionLink("SignIn", "SignIn", "Authorize")</li>
+
+            }
+            else
+            {
+                <li>@Html.ActionLink("LogOut", "LogOut", "Authorize")</li>
+                <li>@Html.ActionLink("Cart", "Index", "Card")</li>
+            }
+            <li>@Html.ActionLink("Phones", "Index", "Phone")</li>
+        </ul>
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+</body>
+</html>
