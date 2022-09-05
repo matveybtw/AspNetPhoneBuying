@@ -12,15 +12,19 @@ namespace AspPhoneBuying.Controllers
     {
         private LoginService _loginService = new LoginService();
         // GET: Authorize
-        public ActionResult Login(string login, string pass)
+        public ActionResult Login(string login, string pass, string repeatPass)
         {
-            var res = _loginService.Login(login, pass);
+            var res = _loginService.Login(login, pass,repeatPass);
             if (res == -1) RedirectToAction("Error", "Authorize");
 
             Response.Cookies.Add(new HttpCookie("id") { Expires = DateTime.Now.AddDays(1), Value = res.ToString() });
 
            return RedirectToAction("Index", "Home");
         
+        }
+        public ActionResult Error()
+        {
+             return View();
         }
         public ActionResult SignUp()
         {
@@ -32,10 +36,10 @@ namespace AspPhoneBuying.Controllers
 
             return View();
         }
-        public ActionResult Register(User  user)
+        public ActionResult Register(User user)
         {
             if (_loginService.Register(user)) return RedirectToAction("Index", "Home");
-            return View("Error");
+            return RedirectToAction("Error", "Authorize");
         }
 
         public ActionResult LogOut()

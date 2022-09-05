@@ -11,10 +11,10 @@ namespace AspPhoneBuying.Service
     {
         private PhoneDbContext phoneDb = new PhoneDbContext("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MyPhonesDB1;Integrated Security=True;");
 
-        public int Login(string login, string pass)
+        public int Login(string login, string pass, string repeatPass)
         {
             var user = phoneDb.Users.FirstOrDefault(x => x.Login == login && x.Pass == pass);
-            return user == null ?-1 : user.Id;
+            return (user == null ||repeatPass!=pass)?-1 : user.Id;
         }
 
         public bool Register(User user)
