@@ -47,6 +47,5 @@ namespace AspPhoneBuying.Controllers
             Response.Cookies.Add(new HttpCookie("id") { Expires = DateTime.Now.AddDays(-1), Value = "-1"});
             return RedirectToAction("Index", "Home");
         }
-
     }
 }

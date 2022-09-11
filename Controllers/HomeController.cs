@@ -1,4 +1,5 @@
 ﻿using AspPhoneBuying.Context;
+using AspPhoneBuying.Filters;
 using System;
 using System.Collections.Generic; 
 using System.Linq;
@@ -11,15 +12,9 @@ namespace AspPhoneBuying.Controllers
     {
         private PhoneDbContext phoneDb = new PhoneDbContext("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MyPhonesDB1;Integrated Security=True;");
         // GET: Home
+        [PhonesFilter]
         public ActionResult Index()
         {
-            var res = Request.Cookies["id"];
-            if(res != null)
-            {
-                var id = int.Parse(res.Value);
-                ViewBag.UserId = id;
-            }
-
             return View(phoneDb.Phones.ToList());
         }
     }
